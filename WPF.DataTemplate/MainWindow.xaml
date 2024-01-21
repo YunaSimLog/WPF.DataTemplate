@@ -30,10 +30,23 @@
             </StackPanel>
         </DataTemplate>
 
+        <DataTemplate DataType="{x:Type local:TestViewModel}">
+            <local:ViewTest/>
+        </DataTemplate>
     </Window.Resources>
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
         <ListBox ItemsSource="{Binding Students}" 
                  ItemTemplateSelector="{StaticResource ItemSelector}">
         </ListBox>
+
+        <ContentControl Grid.Column="1"
+                        Content="{Binding CurrentViewModel}">
+
+        </ContentControl>
     </Grid>
 </Window>

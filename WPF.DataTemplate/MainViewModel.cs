@@ -15,6 +15,7 @@ namespace WPF.DataTemplate
         public MainViewModel()
         {
             students = Student.Students;
+            CurrentViewModel=new TestViewModel();
         }
 
         public  List<Student> Students
@@ -26,6 +27,8 @@ namespace WPF.DataTemplate
                 OnPropertyChanged();
             }
         }
+
+        public ViewModelBase CurrentViewModel { get; set; }
     }
 
 }
