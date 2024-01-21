@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Window.Resources>
-        <DataTemplate x:Key ="STD">
+        <local:ItemSelector x:Key="ItemSelector"></local:ItemSelector>
+        <DataTemplate x:Key ="Woman">
             <StackPanel>
                 <TextBox Text="{Binding Name}" FontSize="20" FontWeight ="Bold" Foreground="BlueViolet"></TextBox>
                 <StackPanel>
@@ -17,10 +18,22 @@
                 </StackPanel>
             </StackPanel>
         </DataTemplate>
+
+        <DataTemplate x:Key ="Man">
+            <StackPanel>
+                <TextBox Text="{Binding Name}" FontSize="20" FontWeight ="Bold" Foreground="DarkGreen"></TextBox>
+                <StackPanel>
+                    <TextBlock Text="{Binding BirthDay}" Margin="10 5" FontSize="15"></TextBlock>
+                    <TextBlock Text="{Binding Gender}" Margin="10 5" FontSize="15"></TextBlock>
+                    <TextBlock Text="{Binding Address}" Margin="10 5" FontSize="15"></TextBlock>
+                </StackPanel>
+            </StackPanel>
+        </DataTemplate>
+
     </Window.Resources>
     <Grid>
-        <ListBox ItemsSource="{Binding Students}" ItemTemplate="{StaticResource STD}">
-
+        <ListBox ItemsSource="{Binding Students}" 
+                 ItemTemplateSelector="{StaticResource ItemSelector}">
         </ListBox>
     </Grid>
 </Window>
